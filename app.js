@@ -11,7 +11,7 @@ $(document).ready( function() {
 		$('.results').html('');
 		// get the value of the tags the user submitted
 		var tags = $(this).find("input[name='answerers']").val();
-		getUnanswered(tags);
+		getUnansweredTwo(tags);
 	});
 
 });
@@ -141,14 +141,14 @@ var getUnansweredTwo = function(tags) {
 	console.log(tags);
 	var result = $.ajax({
 		url: "http://api.stackexchange.com/2.2/tags/" + tags + "/top-answerers/all_time?site=stackoverflow",
-		// data: request,
+		
 		dataType: "jsonp",
 		type: "GET",
 		})
 	.done(function(result){
-
 		console.log(result);
-		var searchResults = showSearchResults(request.tagged, result.items.length);
+		
+		var searchResults = showSearchResultsTwo(request.tagged, result.items.length);
 
 		$('.search-results').html(searchResults);
 
